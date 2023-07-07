@@ -6,9 +6,44 @@ import {
   Button,
   Center,
   HStack,
+  Card,
+  Avatar,
+  CardBody,
 } from "@chakra-ui/react";
-import HomeBox from "../../components/HomeBox/HomeBox";
 import homePattern from "../../assets/Home/pattern.png";
+import card from "../../assets/Home/card.png";
+
+const HomeBox = ({ text }) => {
+  return (
+    <Card
+      h={{ base: "6rem", sm: "7rem", md: "7rem", lg: "7rem", xl: "7rem" }}
+      alignItems={"center"}
+      maxW="sm"
+      variant={"filled"}
+      bg={"gray.300"}
+      _hover={{ cursor: "pointer", boxShadow: " 0 0 0 0.3rem #CBD5E0" }}
+      transitionDuration="50ms"
+    >
+      <Avatar
+        bg={"gray.400"}
+        marginTop={"-2rem"}
+        position={"absolute"}
+        name={text}
+        src={card}
+      />
+      <CardBody>
+        <Text
+          fontWeight={"700"}
+          fontSize={"1.25625rem"}
+          w={{ base: "6rem", sm: "7rem", md: "7rem", lg: "7rem", xl: "8.5rem" }}
+          textAlign={"center"}
+        >
+          {text}
+        </Text>
+      </CardBody>
+    </Card>
+  );
+};
 
 const Home = () => {
   return (
@@ -27,7 +62,11 @@ const Home = () => {
     >
       <Center>
         <Box zIndex={-1}>
-          <Image src={homePattern} alt="Home Pattern" />
+          <Image
+            w={{ base: null, sm: null, md: null, lg: null, xl: "170rem" }}
+            src={homePattern}
+            alt="Home Pattern"
+          />
         </Box>
         <Box position={"absolute"}>
           <Text
